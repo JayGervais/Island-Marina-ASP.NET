@@ -34,7 +34,9 @@ namespace Island_Marina.Models
             using (SqlConnection con = new SqlConnection(constr))
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT ID, Width, Length, DockID from Slip where ID not in (select slipID from lease) and dockID = @dockId", con);
+                SqlCommand cmd = new SqlCommand("SELECT Slip.ID, Width, Length, WaterService, ElectricalService, Name as Dock from Slip " +
+                                                "INNER JOIN Dock ON Slip.DockID = Dock.ID " +
+                                                "WHERE Slip.ID NOT IN(SELECT SlipID FROM Lease) AND dockID = @dockId", con);
                 cmd.Parameters.AddWithValue("@dockId", dockId);
                 SqlDataReader dr = cmd.ExecuteReader();
                 gridView.DataSource = dr;

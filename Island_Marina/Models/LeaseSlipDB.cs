@@ -35,7 +35,9 @@ namespace Island_Marina.Models
             using (SqlConnection con = new SqlConnection(constr))
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT ID, Width, Length, DockID from Slip where ID not in (select slipID from lease) and dockID = @dockId", con);
+                SqlCommand cmd = new SqlCommand("SELECT Slip.ID, Width, Length, WaterService, ElectricalService, Name as Dock from Slip " +
+                                                "INNER JOIN Dock ON Slip.DockID = Dock.ID " +
+                                                "WHERE Slip.ID NOT IN(SELECT SlipID FROM Lease) AND dockID = @dockId", con);
                 cmd.Parameters.AddWithValue("@dockId", dockId);
 
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -44,15 +46,39 @@ namespace Island_Marina.Models
                 dataTable.Columns.Add("ID");
                 dataTable.Columns.Add("Width");
                 dataTable.Columns.Add("Length");
-                dataTable.Columns.Add("DockID");
+                dataTable.Columns.Add("WaterService");
+                dataTable.Columns.Add("ElectricalService");
+                dataTable.Columns.Add("Dock");
 
                 while (reader.Read())
                 {
+                    string waterService;
+                    if(Convert.ToBoolean(reader["WaterService"]) == true)
+                    {
+                       waterService = "Yes";
+                    }
+                    else
+                    {
+                       waterService = "No";
+                    }
+
+                    string electricalService;
+                    if (Convert.ToBoolean(reader["ElectricalService"]) == true)
+                    {
+                        electricalService = "Yes";
+                    }
+                    else
+                    {
+                        electricalService = "No";
+                    }
+
                     DataRow row = dataTable.NewRow();
                     row["ID"] = reader["ID"];
                     row["Width"] = reader["Width"];
                     row["Length"] = reader["Length"];
-                    row["DockID"] = reader["DockID"];
+                    row["WaterService"] = waterService;
+                    row["ElectricalService"] = electricalService;
+                    row["Dock"] = reader["Dock"];
                     dataTable.Rows.Add(row);
                 }
                 gridView.DataSource = dataTable;
@@ -81,8 +107,7 @@ namespace Island_Marina.Models
                 SqlDataReader dr = cmd.ExecuteReader();
                 gridView.DataSource = dr;
                 gridView.DataBind();
-                con.Close();
-                
+                con.Close();       
             }
         }
 
@@ -110,7 +135,6 @@ namespace Island_Marina.Models
                 sqlCommand.ExecuteScalar();
                 con.Close();
             }
-
         }
     }
 }

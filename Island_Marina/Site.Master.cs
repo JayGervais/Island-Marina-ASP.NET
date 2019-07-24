@@ -7,7 +7,11 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
-
+/// <summary>
+/// CPRG 214 - Lab 2
+/// Jay Gervais
+/// July 25, 2019
+/// </summary>
 namespace Island_Marina
 {
     public partial class SiteMaster : MasterPage
