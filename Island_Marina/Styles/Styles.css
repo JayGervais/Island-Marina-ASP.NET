@@ -1,0 +1,85 @@
+﻿body {
+}
+
+.bg-primary.py-5.mb-5 {
+    background-image: url('../Images/anchored-1850849_1280.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 0px !important;
+}
+
+.page-spacing {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+h1.display-4.text-dark.mt-5.mb-2 {
+    text-shadow: 4px 0px 5px #000;
+    font-weight: bold;
+    color: #fff !important;
+    font-size: 60px;
+}
+
+p.lead.mb-5.text-white-50 {
+    text-shadow: 4px 0px 5px #000;
+    color: #fff !important;
+    font-weight: bold;
+}
+
+img.island-banner {
+    width: 100%;
+    padding-top: 50px;
+}
+
+img.imgwide {
+    width: 100%;
+}
+
+.lblMessage {
+    color: #00751d;
+    font-weight: bold;
+    font-size: 20px;
+    padding-bottom: 5px;
+}
+
+.lblError {
+    color: #910000;
+    font-weight: bold;
+    font-size: 20px;
+    padding-bottom: 5px;
+}
+
+.row.h-100.align-items-center {
+    padding-top: 65px;
+    padding-bottom: 65px;
+}
+
+#MainContent_gvAvailableSlips {
+    width: 100%;
+}
+
+#MainContent_gvAvailableLeaseSlips {
+    width: 100%;
+}
+
+#MainContent_gvCustomerSlips {
+    width: 100%;
+}
+
+th {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+}
+
+td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+}
+
+.col-md-2.control-label {
+    font-weight: bold;
+}
