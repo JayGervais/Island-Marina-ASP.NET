@@ -82,6 +82,7 @@ namespace Island_Marina
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
         {
             Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            Session["email"] = null;
         }
     }
 
