@@ -9,23 +9,25 @@
           <img class="imgwide" src="Images/marina.jpg" />
       </div>
       <div class="col-md-4 mb-5">
-        <h2>Contact Us</h2>
+         <h2>Contact Us</h2>
         <hr>
         <address>
-          <strong>Inland Lake</strong>
-          <br>Inland Lake Marina
+          <strong>Inland Lake Marina</strong>
+          <br>Box 123
+          <br>Inland Lake, Arizona
           <br>Arcata, CA 68542
-          <br>
-          <br>San Diago Marina
-          <br>San Diago, CA 90210
-          <br>
+          <br>86038
         </address>
         <address>
-          <abbr title="Phone">P:</abbr>
-          (123) 456-7890
+          Office Phone:
+          928-450-2234
+          <br>Leasing Phone: 928-450-2235
+          <br>Fax: 928-450-2236
           <br>
-          <abbr title="Email">E:</abbr>
-          <a href="mailto:#">info@islandlake.com</a>
+          <br>Manager: Glenn Cooke
+          <br>Slip Manager: Kimberly Carson
+          <br>
+          <a href="mailto:#">info@inlandmarina.com</a>
         </address>
       </div>
     </div>
