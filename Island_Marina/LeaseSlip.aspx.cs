@@ -46,6 +46,21 @@ namespace Island_Marina
                     btnCell.Controls.Add(btn);
                     row.Cells.Add(btnCell);
                 }
+
+                foreach (TableRow row in gvCustomerSlips.Rows)
+                {
+                    TableCell btnCell = new TableCell();
+                    Button btn = new Button();
+
+                    int id = Convert.ToInt32(row.Cells[0].Text);
+
+                    btn.Text = "X";
+                    btn.CssClass = "btn";
+                    btn.ID = id.ToString();
+                    btn.Click += new EventHandler(BtnRemoveLease_Click);
+                    btnCell.Controls.Add(btn);
+                    row.Cells.Add(btnCell);
+                }
             } 
         }
 
@@ -61,5 +76,19 @@ namespace Island_Marina
 
             Response.Redirect("LeaseSlip.aspx");
         }
+
+        public void BtnRemoveLease_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            GridViewRow row = (GridViewRow)btn.NamingContainer;
+            int id = Convert.ToInt32(row.Cells[0].Text);
+
+            string custEmail = Convert.ToString(Session["email"]);
+            LeaseSlipDB removeSlip = new LeaseSlipDB();
+            removeSlip.RemoveSlip(id);
+
+            Response.Redirect("LeaseSlip.aspx");
+        }
+
     }
 }

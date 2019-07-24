@@ -13,8 +13,6 @@
                 <asp:GridView ID="gvCustomerSlips" CssClass="table-striped table-grid" AutoGenerateColumns="true" GridLines="None" runat="server">
                 </asp:GridView>
         </div>
-
-
         <div class="col-md-8">
             <h2>Available Slips</h2>
             <table class="table table-striped">

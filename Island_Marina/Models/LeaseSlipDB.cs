@@ -11,8 +11,6 @@ namespace Island_Marina.Models
 {
     public class LeaseSlipDB
     {
-        private Control btnLease;
-
         public void LeaseDocksDropDown(DropDownList inputList)
         {
             DataTable docks = new DataTable();
@@ -133,6 +131,19 @@ namespace Island_Marina.Models
                 sqlCommand.Parameters.AddWithValue("@SlipID", slipID);
                 sqlCommand.Parameters.AddWithValue("@CustomerID", custID);
                 sqlCommand.ExecuteScalar();
+                con.Close();
+            }
+        }
+
+        public void RemoveSlip(int slipID)
+        {
+            string constr = @"data source=localhost\SAITSQLEXPRESS;initial catalog=Marina;integrated security=True";
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                con.Open();
+                SqlCommand deleteSlipCMD = new SqlCommand("DELETE FROM Lease WHERE ID = @SlipID", con);
+                deleteSlipCMD.Parameters.AddWithValue("@slipID", slipID);
+                deleteSlipCMD.ExecuteScalar();
                 con.Close();
             }
         }

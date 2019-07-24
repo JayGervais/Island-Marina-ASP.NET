@@ -22,6 +22,11 @@ h1.display-4.text-dark.mt-5.mb-2 {
     font-size: 60px;
 }
 
+a#HyperLinkLS {
+    font-weight: bold;
+    color: #dadada;
+}
+
 p.lead.mb-5.text-white-50 {
     text-shadow: 4px 0px 5px #000;
     color: #fff !important;
@@ -30,8 +35,8 @@ p.lead.mb-5.text-white-50 {
 
 img.island-banner {
     width: 100%;
-    padding-top: 50px;
-    border-radius: 25px;
+    padding-top: 0px;
+    border-radius: 0px 0px 25px 25px;
 }
 
 img.imgwide {
