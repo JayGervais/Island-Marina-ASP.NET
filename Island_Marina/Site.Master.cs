@@ -69,7 +69,10 @@ namespace Island_Marina
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["email"] == null)
+            {
+                HyperLinkLS.Text = "";
+            }
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)

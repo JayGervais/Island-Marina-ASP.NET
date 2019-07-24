@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="page-spacing">
         <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-4">
             <h2>Available Slips</h2>
             <p>Choose a dock to see availability</p>
             <asp:DropDownList ID="ddlDocks" CssClass="form-control" runat="server" AppendDataBoundItems="true" AutoPostBack="true"></asp:DropDownList>

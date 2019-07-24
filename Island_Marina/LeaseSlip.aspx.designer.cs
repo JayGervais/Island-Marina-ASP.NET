@@ -22,15 +22,6 @@ namespace Island_Marina {
         protected global::System.Web.UI.WebControls.DropDownList ddlLeaseDocks;
         
         /// <summary>
-        /// gvAvailableLeaseSlips control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvAvailableLeaseSlips;
-        
-        /// <summary>
         /// gvCustomerSlips control.
         /// </summary>
         /// <remarks>
@@ -38,5 +29,14 @@ namespace Island_Marina {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvCustomerSlips;
+        
+        /// <summary>
+        /// gvAvailableLeaseSlips control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvAvailableLeaseSlips;
     }
 }

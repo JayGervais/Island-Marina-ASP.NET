@@ -37,9 +37,27 @@ namespace Island_Marina.Models
                 con.Open();
                 SqlCommand cmd = new SqlCommand("SELECT ID, Width, Length, DockID from Slip where ID not in (select slipID from lease) and dockID = @dockId", con);
                 cmd.Parameters.AddWithValue("@dockId", dockId);
-                SqlDataReader dr = cmd.ExecuteReader();
-                gridView.DataSource = dr;
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                SqlDataReader sqlDataReader = reader;
+                DataTable dataTable = new DataTable();
+                dataTable.Columns.Add("ID");
+                dataTable.Columns.Add("Width");
+                dataTable.Columns.Add("Length");
+                dataTable.Columns.Add("DockID");
+
+                while (reader.Read())
+                {
+                    DataRow row = dataTable.NewRow();
+                    row["ID"] = reader["ID"];
+                    row["Width"] = reader["Width"];
+                    row["Length"] = reader["Length"];
+                    row["DockID"] = reader["DockID"];
+                    dataTable.Rows.Add(row);
+                }
+                gridView.DataSource = dataTable;
                 gridView.DataBind();
+
                 con.Close();
             }
         }
@@ -66,6 +84,33 @@ namespace Island_Marina.Models
                 con.Close();
                 
             }
+        }
+
+        public void LeaseSlip(int slipID, string custEmail)
+        {
+            string constr = @"data source=localhost\SAITSQLEXPRESS;initial catalog=Marina;integrated security=True";
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                con.Open();
+                SqlCommand getCustID = new SqlCommand("SELECT ID FROM Customer WHERE Email = @custEmail", con);
+                getCustID.Parameters.AddWithValue("@custEmail", custEmail);
+                SqlDataReader id = getCustID.ExecuteReader();
+                id.Read();
+                int custID = Convert.ToInt32(id[0]);
+                con.Close();
+
+                string addLeaseSlipQuery = @"INSERT INTO Lease " +
+                                         "(SlipID, CustomerID) " +
+                                         "VALUES (@SlipID, @CustomerID)";
+
+                SqlCommand sqlCommand = new SqlCommand(addLeaseSlipQuery, con);
+                con.Open();
+                sqlCommand.Parameters.AddWithValue("@SlipID", slipID);
+                sqlCommand.Parameters.AddWithValue("@CustomerID", custID);
+                sqlCommand.ExecuteScalar();
+                con.Close();
+            }
+
         }
     }
 }

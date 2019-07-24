@@ -52,7 +52,9 @@
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/Contact">Contact</a></li>
                         <li><a runat="server" href="~/AvailableSlips">Available Slips</a></li>
-                        <li><a runat="server" href="~/LeaseSlip">Lease Slip</a></li>
+                        <li>
+                            <asp:HyperLink ID="HyperLinkLS" href="LeaseSlip" runat="server">Lease Slip</asp:HyperLink>
+                        </li>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
