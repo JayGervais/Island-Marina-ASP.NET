@@ -2,7 +2,7 @@
 }
 
 .bg-primary.py-5.mb-5 {
-    background-image: url('../Images/anchored-1850849_1280.jpg');
+    background-image: url('../Images/anchored-1850849_1280-dark.jpg');
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -31,10 +31,12 @@ p.lead.mb-5.text-white-50 {
 img.island-banner {
     width: 100%;
     padding-top: 50px;
+    border-radius: 25px;
 }
 
 img.imgwide {
     width: 100%;
+    border-radius: 15px;
 }
 
 .lblMessage {

@@ -190,6 +190,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Account\Web.config" />
     <Content Include="AvailableSlips.aspx" />
+    <Content Include="Images\anchored-1850849_1280-dark.jpg" />
     <Content Include="Images\anchored-1850849_1280.jpg" />
     <Content Include="Images\cristina-gottardi-QPNpXcQfdLA-unsplash.jpg" />
     <Content Include="LeaseSlip.aspx" />
