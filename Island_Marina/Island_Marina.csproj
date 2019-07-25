@@ -409,6 +409,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Lease.cs" />
     <Compile Include="Models\LeaseSlipDB.cs" />
+    <Compile Include="Models\MarinaDB.cs" />
     <Compile Include="Models\Slip.cs" />
     <Compile Include="Models\SlipDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

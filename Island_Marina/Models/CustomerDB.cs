@@ -10,7 +10,7 @@ namespace Island_Marina.Models
     {
         public void CreateAccount(string firstName, string lastName, string phone, string city, string email)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=localhost\SAITSQLEXPRESS;Initial Catalog=Marina;Integrated Security=True");
+            SqlConnection con = MarinaDB.GetConnection();
 
             string addCustomerQuery = @"INSERT INTO Customer " +
                                         "(FirstName, LastName, Phone, City, Email) " +

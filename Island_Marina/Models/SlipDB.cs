@@ -16,7 +16,7 @@ namespace Island_Marina.Models
         {
             DataTable docks = new DataTable();
 
-            using (SqlConnection con = new SqlConnection(@"data source=localhost\SAITSQLEXPRESS;initial catalog=Marina;integrated security=True"))
+            using (SqlConnection con = MarinaDB.GetConnection())
             {
                 SqlDataAdapter adapter = new SqlDataAdapter("SELECT DISTINCT ID, Name FROM Dock", con);
                 adapter.Fill(docks);
@@ -30,8 +30,7 @@ namespace Island_Marina.Models
 
         public void BindSlipGrid(int dockId, GridView gridView)
         {
-            string constr = @"data source=localhost\SAITSQLEXPRESS;initial catalog=Marina;integrated security=True";
-            using (SqlConnection con = new SqlConnection(constr))
+            using (SqlConnection con = MarinaDB.GetConnection())
             {
                 con.Open();
                 SqlCommand cmd = new SqlCommand("SELECT Slip.ID, Width, Length, WaterService, ElectricalService, Name as Dock from Slip " +

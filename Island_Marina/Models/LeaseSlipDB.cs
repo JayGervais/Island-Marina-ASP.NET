@@ -15,7 +15,7 @@ namespace Island_Marina.Models
         {
             DataTable docks = new DataTable();
 
-            using (SqlConnection con = new SqlConnection(@"data source=localhost\SAITSQLEXPRESS;initial catalog=Marina;integrated security=True"))
+            using (SqlConnection con = MarinaDB.GetConnection())
             {
                 SqlDataAdapter adapter = new SqlDataAdapter("SELECT DISTINCT ID, Name FROM Dock", con);
                 adapter.Fill(docks);
@@ -29,8 +29,7 @@ namespace Island_Marina.Models
 
         public void LeaseBindSlipGrid(int dockId, GridView gridView)
         {
-            string constr = @"data source=localhost\SAITSQLEXPRESS;initial catalog=Marina;integrated security=True";
-            using (SqlConnection con = new SqlConnection(constr))
+            using (SqlConnection con = MarinaDB.GetConnection())
             {
                 con.Open();
                 SqlCommand cmd = new SqlCommand("SELECT Slip.ID, Width, Length, WaterService, ElectricalService, Name as Dock from Slip " +
@@ -88,8 +87,7 @@ namespace Island_Marina.Models
 
         public void CustomerSlips(string custEmail, GridView gridView)
         {
-            string constr = @"data source=localhost\SAITSQLEXPRESS;initial catalog=Marina;integrated security=True";
-            using (SqlConnection con = new SqlConnection(constr))
+            using (SqlConnection con = MarinaDB.GetConnection())
             {
                 con.Open();
                 SqlCommand getCustID = new SqlCommand("SELECT ID FROM Customer WHERE Email = @custEmail", con);
@@ -111,8 +109,7 @@ namespace Island_Marina.Models
 
         public void LeaseSlip(int slipID, string custEmail)
         {
-            string constr = @"data source=localhost\SAITSQLEXPRESS;initial catalog=Marina;integrated security=True";
-            using (SqlConnection con = new SqlConnection(constr))
+            using (SqlConnection con = MarinaDB.GetConnection())
             {
                 con.Open();
                 SqlCommand getCustID = new SqlCommand("SELECT ID FROM Customer WHERE Email = @custEmail", con);
@@ -137,8 +134,7 @@ namespace Island_Marina.Models
 
         public void RemoveSlip(int slipID)
         {
-            string constr = @"data source=localhost\SAITSQLEXPRESS;initial catalog=Marina;integrated security=True";
-            using (SqlConnection con = new SqlConnection(constr))
+            using (SqlConnection con = MarinaDB.GetConnection())
             {
                 con.Open();
                 SqlCommand deleteSlipCMD = new SqlCommand("DELETE FROM Lease WHERE ID = @SlipID", con);
